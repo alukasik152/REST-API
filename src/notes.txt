@@ -1,0 +1,31 @@
+base url: 'localhost'
+
+weapon: {
+  name: string
+  element: kinetic, solar, void, arc, stasis
+  type: pulse rifle, scout rifle, auto rifle
+  frame: adaptive, light weight, rapid fire, aggressive
+  killTracker?: number // killTracker: number | undefined
+}
+
+GET /weapons
+  // you can add query params to this route to filter which weapons you return. i.e.
+  // GET /weapons?type="Hand Cannon"&element="arc"
+GET /weapons/:name
+POST /weapons
+  body: weapon
+PUT /weapons/:name
+  body: killTracker
+  {
+      killTracker: number
+  }
+DELETE /weapons/:name
+
+GET localhost/weapons
+  // list of all weapons
+
+GET localhost/weapons/igneousHammer
+  // give the that single weapon
+
+
+}

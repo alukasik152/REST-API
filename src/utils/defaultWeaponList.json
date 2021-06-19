@@ -1,0 +1,16 @@
+{
+  "hungjury": {
+    "id": "hungjury",
+    "name": "hung jury",
+    "element": "void",
+    "type": "Scout Rifle",
+    "frame": "aggressive"
+  },
+  "igneoushammer": {
+    "id": "igneoushammer",
+    "name": "igneous hammer",
+    "element": "solar",
+    "type": "Hand Cannon",
+    "frame": "aggressive"
+  }
+}
