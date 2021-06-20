@@ -1,5 +1,5 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { Weapon } from "../models/Weapon";
+import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
+import { Weapon, Element, Archetype } from "../models/Weapon";
 import { WeaponProvider } from "../providers/WeaponProvider";
 
 @Controller('/weapons') // http://localhost:port/weapons
@@ -16,4 +16,19 @@ export class WeaponController {
     this.weaponProvider.createWeapon(weapon);
     return weapon;
   }
+
+  @Get('') //GET /
+  public getAllWeapons(@Query('element') element: Element, @Query('type') type: Archetype) :Weapon[] {
+    let weaponArray: Weapon[] = [];
+    if(!element && !type){
+      weaponArray = this.weaponProvider.getWeapons();
+      return weaponArray;
+    }
+    if(element && !type){
+
+      
+    }
+    
+
+
 }

@@ -1,6 +1,6 @@
-type Element = 'arc' | 'solar' | 'stasis' | 'void' | 'kinetic';
-type Frame = 'adaptive' | 'rapid fire' | 'aggressive' | 'lightweight' | 'precision';
-type Archetype = 'Pulse Rifle' | 'Scout Rifle' | 'Auto Rifle' | 'Hand Cannon' | 'Sidearm' | 'SMG';
+export type Element = 'arc' | 'solar' | 'stasis' | 'void' | 'kinetic';
+export type Frame = 'adaptive' | 'rapid fire' | 'aggressive' | 'lightweight' | 'precision';
+export type Archetype = 'Pulse Rifle' | 'Scout Rifle' | 'Auto Rifle' | 'Hand Cannon' | 'Sidearm' | 'SMG';
 
 export interface Weapon {
   id: string;
@@ -8,7 +8,7 @@ export interface Weapon {
   element: Element;
   type: Archetype;
   frame: Frame;
-  killTracker?: number;
+  masterworkLevel?: number;
 }
 
 export interface HandCannon extends Weapon {

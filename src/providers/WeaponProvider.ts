@@ -1,5 +1,5 @@
 import { ConflictException, Injectable, NotFoundException } from "@nestjs/common";
-import { Weapon } from "../models/Weapon";
+import { Weapon, Element, Archetype } from "../models/Weapon";
 import * as defaultWeaponList from '../utils/defaultWeaponList.json';
 
 const weaponList: Weapon[] = Object.values(defaultWeaponList) as Weapon[] || [];
@@ -11,8 +11,8 @@ export class WeaponProvider {
   public getWeapons(): Weapon[] {
     return weaponList;
   }
-
-  // arrays always have a find function built in. The find function takes a function as a param, where the param of the function is the current value in the array
+  // arrays always have a find function built in. The find function takes a function as a param, 
+  //where the param of the function is the current value in the array
   public getWeapon(id: string): Weapon {
     const weapon = weaponList.find(weapon => weapon.id === id);
     if (!weapon) {
@@ -27,4 +27,5 @@ export class WeaponProvider {
       throw new ConflictException('Weapon already exists!');
     weaponList.push(userWeapon);
   }  
+
 }
