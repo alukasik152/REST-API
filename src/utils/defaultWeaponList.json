@@ -1,16 +1,45 @@
 {
-  "hungjury": {
-    "id": "hungjury",
+  "hungJury": {
+    "id": "HungJury",
     "name": "hung jury",
     "element": "void",
-    "type": "Scout Rifle",
+    "type": "ScoutRifle",
     "frame": "aggressive"
   },
-  "igneoushammer": {
-    "id": "igneoushammer",
-    "name": "igneous hammer",
+  "igneousHammer": {
+    "id": "IgneousHammer",
+    "name": "Igneous Hammer",
     "element": "solar",
-    "type": "Hand Cannon",
+    "type": "HandCannon",
     "frame": "aggressive"
+  },
+  "horrorsLeast": {
+    "id": "HorrorsLeast",
+    "name": "Horror's Least",
+    "element": "arc",
+    "type": "PulseRifle",
+    "frame": "rapid fire"
+  },
+  "thirdAxiom": {
+    "id": "ThirdAxiom",
+    "name": "Third Axiom",
+    "element": "arc",
+    "type": "PulseRifle",
+    "frame": "adaptive"
+  },
+  "posterity":{
+    "id": "Posterity",
+    "name": "Posterrity",
+    "element": "arc",
+    "type": "HandCannon",
+    "frame": "precision"
+  },
+  "lastPerdition":{
+    "id": "LastPerdition",
+    "name": "Last Perdition",
+    "element": "void",
+    "type": "PulseRifle",
+    "frame": "Adaptive"
   }
+
 }

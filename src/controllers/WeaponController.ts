@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { Weapon } from "../models/Weapon";
-import { WeaponProvider } from "../providers/WeaponProvider";
+import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
+import { Weapon, Element, Archetype, Frame } from "../models/Weapon";
+import { WeaponProvider, FilterOptions  } from "../providers/WeaponProvider";
 
 @Controller('/weapons') // http://localhost:port/weapons
 export class WeaponController {
@@ -15,5 +15,16 @@ export class WeaponController {
   public createWeapon(@Body() weapon: Weapon): Weapon {
     this.weaponProvider.createWeapon(weapon);
     return weapon;
+  }
+
+  @Get('') //GET /
+  public getAllWeapons(@Query('element') element: Element, @Query('type') type: Archetype, @Query('frame') frame: Frame) :Weapon[] {
+    const opts: FilterOptions = {
+      element,
+      type,
+      frame
+    };
+    const weaponArray = this.weaponProvider.getWeapons(opts);
+    return weaponArray;
   }
 }
