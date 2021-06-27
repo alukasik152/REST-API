@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Query } from "@nestjs/common";
 import { Weapon, Element, Archetype, Frame } from "../models/Weapon";
 import { WeaponProvider, FilterOptions  } from "../providers/WeaponProvider";
 
@@ -27,4 +27,11 @@ export class WeaponController {
     const weaponArray = this.weaponProvider.getWeapons(opts);
     return weaponArray;
   }
+
+  @Delete(':id')
+  public deleteWeapon(@Param('id') id: string): void{
+    this.weaponProvider.deleteWeapon(id);
+  }
 }
+
+ 

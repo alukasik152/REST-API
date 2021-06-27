@@ -33,7 +33,7 @@ export class WeaponProvider {
   //where the param of the function is the current value in the array
   public getWeapon(id: string): Weapon {
     const weapon = weaponList.find(weapon => weapon.id === id);
-    if (!weapon) {
+    if(!weapon) {
       throw new NotFoundException('Weapon not found!');
     }
     return weapon;
@@ -44,5 +44,16 @@ export class WeaponProvider {
       throw new ConflictException('Weapon already exists!');
     weaponList.push(userWeapon);
   }  
-
+  public deleteWeapon(id: string): void{
+    const weapon = weaponList.find(weapon => weapon.id === id);
+    if(!weapon) {
+      throw new NotFoundException('Weapon not found!');
+    }
+    for(let i = 0; i < weaponList.length; i++){
+      if(weaponList[i].id === id){
+        weaponList.splice(i, 1);
+        return;  
+      }
+    }
+  }
 }
