@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
 import { Weapon, Element, Archetype, Frame } from "../models/Weapon";
 import { WeaponProvider, FilterOptions  } from "../providers/WeaponProvider";
 
@@ -32,6 +32,12 @@ export class WeaponController {
   public deleteWeapon(@Param('id') id: string): void{
     this.weaponProvider.deleteWeapon(id);
   }
+
+  @Patch(':id')
+  public changeMasterwork(@Param('id') weapon: Weapon, @Body() updatedWeapon: Weapon): Weapon{
+    return this.weaponProvider.changeMasterwork(updatedWeapon);
+  }  
+
 }
 
  

@@ -56,4 +56,19 @@ export class WeaponProvider {
       }
     }
   }
-}
+  public changeMasterwork(userWeapon: Weapon): Weapon{
+    const weapon = weaponList.find(weapon => weapon.id === userWeapon.id)
+    if(!weapon)
+      throw new NotFoundException('Weapon not found!');
+
+    if(userWeapon.masterworkLevel > 10)
+      throw new ConflictException('Masterwork can not be greater than 10');
+
+    if(userWeapon.masterworkLevel < 0)
+      throw new ConflictException('Masterwork can not be less than 0');
+    
+    const weaponIndex = weaponList.findIndex((weapon => weapon.id === userWeapon.id));
+    weaponList[weaponIndex].masterworkLevel = userWeapon.masterworkLevel;
+    return weaponList[weaponIndex];
+    }
+}    
